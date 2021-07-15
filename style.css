@@ -1,9 +1,7 @@
 body{
-	background: #69f
+	background: #69f;
+	font-family: 'Rubik', sans-serif;
 }
-td{
-	border: 1px solid black; font-size: 23px; font-family: "Rubik-Regular"; background: #fff
-} 
 #timer_inp{
 	background: khaki;
 	width: 100px;
@@ -13,46 +11,56 @@ td{
 	text-align: center;
 	font-size: 50px;	
 	font-weight:bold;
-	font-family: "Rubik-Regular";	
-	margin-left: 48%;
+	box-shadow: 0 0 7px rgba(0,0,0,0.5) inset;	
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 20px
+}
+.help-bar{
+	margin-left: auto;
+	margin-right: auto;
+}
+.help-bar td {
+	background: #69f;
+	border-radius: 60%;
 }
 .round-style{
 	background: #0FF;
 	border: 1px solid black;
 	border-radius: 50%;
+	cursor: pointer;
 	width: 100px;
 	height: 100px;
 	text-align: center;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 0px #3C93D5,
+	 0 0 8px rgba(0,0,0,0.5) inset;
 	position: relative;
 }
 .round-style:hover{
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	box-shadow: 
+		0 14px 28px rgba(0,0,0,0.25),
+		0 10px 10px rgba(0,0,0,0.22),
+		0 0 8px rgba(0,0,0,0.5) inset;
 	transform: translateY(-4px);
 }
 .round-style1{
-	margin-left: 38%;
+	
 	font-weight: bold;
-	font-family: "Rubik-Regular";
+	
 }
 .round-style2{
-	margin-left: 45%;
-	margin-top: -100px;
+
 	font-weight: bold;	
-	font-family: "Rubik-Regular";
+	
 }
 .round-style3{
-	margin-left: 52%;
-	margin-top: -100px;
+	
 	font-weight: bold;
-	font-family: "Rubik-Regular";
+
 }
 .round-style4{
-	margin-left: 59%;
-	margin-top: -100px;
+	
 	font-weight: bold;
-	font-family: "Rubik-Regular";
 }
 .round-style p{
 	margin-top: 30px
@@ -61,72 +69,84 @@ td{
 	margin-top: 40px
 }
 .question{
-	width: 800px;
-	margin-left: 35%;
-	margin-top: 10%;
+	width: 50vw;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 40px;
-	font-family: "Rubik-Regular";
+
 }
 .answer-label{
 	font-size: 30px;
-	font-family: "Rubik-Regular";
 	color: #000
 }
 
 .answer-input {
 	display: block;
-	margin-left: 10px;
 	margin-top: 10px;
 	width: 400px;
-	padding-left: 40%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .answer-input input[type=radio] {
 	display: none;
 }
 .answer-input label {
-	background: #ffffffff;
+	background: #fff;
 	display: block;
 	cursor: pointer;
 	padding: 0px 15px;
-	line-height: 34px;
 	border: 3px solid #999;
 	border-radius: 6px;
-	user-select: none;
-	box-shadow: 0px 3px 0px #3C93D5;
+	-webkit-user-select
+	box-shadow: 0px 4px 0px #3C93D5;
 	position: relative;
 	top: 0;
 }
 .answer-input input[type=radio]:checked + label {
-	background: khaki;
+	background: #ff0;
 }
 .answer-input label:hover {
-	color: #666;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	transform: translateY(-4px);
+
 }
 
 .btn{
+	cursor: pointer;
 	width: 200px;
 	height: 50px;
+	background: white;
+	border: 3px solid #999;
+	border-radius: 6px;
 	font-size: 20px;
-	font-family: "Rubik-Regular";
-	margin-left: 46%;
 	margin-top: 5%;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	box-shadow: 0px 4px 0px #3C93D5;
 	position: relative;
 }
 .btn:hover{
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	transform: translateY(-4px);
 }
-table{
-	margin-left: 90%; margin-top: -500px;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+
+.table{
+
+	margin-left: 90%;
+	margin-top: -40%;
+	
+}
+.table tbody td {
+	text-align: center;
+	padding: 10px 10px;
+	font-size: 18px;
+	vertical-align: top;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5) inset;
+	border-radius: 8px 8px 8px 8px;
 }
 .tr{
 	color: red;
 	font-weight:bold;
-	font-family: "Rubik-Regular"
 }
 .start{
 	background: rgba(0,0,0,0.95);
@@ -137,7 +157,6 @@ table{
 	bottom: 0;
 	display: block;
 	font-weight:bold;
-	font-family: "Rubik-Regular"
 }
 #user{
 	margin-left: 39%;
@@ -146,13 +165,11 @@ table{
 	height: 50px;
 	text-align: center;
 	font-size: 20px;
-	font-family: "Rubik-Regular"
 }
 #start{
 	height: 56px;
 	text-align: center;
 	font-size: 20px;
-	font-family: "Rubik-Regular";
 }
 .end{
 	background: rgba(0,0,0,0.95);
@@ -163,7 +180,6 @@ table{
 	bottom: 0;
 	display: none;
 	font-weight:bold;
-	font-family: "Rubik-Regular";
 }
 .end h1{
 	color: #f30;
@@ -184,7 +200,6 @@ table{
 	bottom: 0;
 	display: none;
 	font-weight:bold;
-	font-family: "Rubik-Regular";
 }
 .reStart h1{
 	color: #cc0;
@@ -194,10 +209,3 @@ table{
 #startGame{
 	margin-left: 47%
 }
-
-@font-face {
-	font-family: "Rubik-Regular"; 
-	src: url("fonts/Rubik-Regular.ttf") format("truetype"); 
-	font-style: normal; 
-	font-weight: normal; 
-	}
