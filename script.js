@@ -1,9 +1,8 @@
-var question = ['В каком районе находится БГТУ?'];
-var answer = ['Володарсоком',
-		'Бежицком',
-		'Фокинском',
-		'Советском'];
-var key = [1];
+var dataList= [{
+		"question": "В каком районе находится БГТУ?",
+    	"answer": ["Володарсоком", "Бежицком", "Фокинском", "Советском"],
+    	"key": 1
+	}]
 
 function contains(arr, elem) {
 
@@ -19,7 +18,7 @@ function inputQuestion() {
 	var repeat = [-1];
 	var index = 0;
 
-	for (var i = 0; i < 14; i++) {
+	for (var i = 0; i < 15; i++) {
 		index = Math.rand(0, data.length-1);
 
 		while(contains(repeat, index)) {
@@ -28,14 +27,22 @@ function inputQuestion() {
 		
 		repeat.push(index)
 
-		question.push(data[index].question);
-		answer.push(
-			data[index].answer[0],
-			data[index].answer[1],
-			data[index].answer[2],
-			data[index].answer[3]);
-		key.push(data[index].key);
+		dataList.push({
+			question: data[index].question,
+			answer: [
+				data[index].answer[0],
+				data[index].answer[1],
+				data[index].answer[2],
+				data[index].answer[3]],
+			key: data[index].key}
+			)
 	}
+
+	dataList.push({
+		question: 'null',
+		answer: 'null',
+		key: 0
+	})
 }
 
 var level = 0;
@@ -60,23 +67,24 @@ if (username != null) {
 
 function show(level) {
 
-	$('.question').text( [level+1] + '. ' + question[level] );
-	$('label[for=answer1]').text( 'A. ' + answer[level*4+0] );
-	$('label[for=answer2]').text( 'B. ' + answer[level*4+1] );
-	$('label[for=answer3]').text( 'C. ' + answer[level*4+2] );
-	$('label[for=answer4]').text( 'D. ' + answer[level*4+3] );
+	$('.question').text( [level+1] + '. ' + dataList[level].question );
+	$('label[for=answer1]').text( 'A. ' + dataList[level].answer[0] );
+	$('label[for=answer2]').text( 'B. ' + dataList[level].answer[1] );
+	$('label[for=answer3]').text( 'C. ' + dataList[level].answer[2] );
+	$('label[for=answer4]').text( 'D. ' + dataList[level].answer[3] );
 }
 
 var resultConst = [];		
 show(level);
 var tr = $('tr'); 
-$(tr[tr.length - (level + 1)]).css('background','#FF0');
+$(tr[tr.length - (level + 1)]).css('background','#ff0');
 
 $('.btn').click(function() {
 	
 	$("#timer_inp").text(60);
+	$("#timer_inp").css('background', '#ff0');
 
-	if( $('input[name=answer]:checked').val() == key[level] ) {
+	if( $('input[name=answer]:checked').val() == dataList[level].key ) {
 		level++;
 		show(level);		
 	} else {
@@ -115,8 +123,9 @@ $('.round50').click(function() {
 	var count = 0;
 	while(count < 2) {
 		var index = Math.rand(0,3);
-		if (exp.indexOf(index) == -1 && $(inputAnswer[index]).val() != key[level] ) {
+		if (exp.indexOf(index) == -1 && $(inputAnswer[index]).val() != dataList[level].key ) {
 			$(inputLabel[index]).css('color', '#fff');
+
 			count++;
 			exp.push(index);
 		}
@@ -125,10 +134,23 @@ $('.round50').click(function() {
 	$(this).css('background', 'red');
 })
 	 
+function majortyOpinion() {
+
+	var arr=[];
+
+	for (var i = 0; i < 4; i++) {
+		arr.push(i)
+		if (i == dataList[level].key) {
+			arr.push(i, i)
+		}
+	}
+
+	$(inputLabel[arr[Math.rand(0,arr.length-1)]]).css('color', '#f90');
+}
 
 $('.round').click(function() {
 		
-	$(inputLabel[Math.rand(0,3)]).css('color', '#F90'),
+	majortyOpinion();
 	$(this).off('click');
 	$(this).css('background', 'red');	
 })
