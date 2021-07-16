@@ -18,7 +18,7 @@ function inputQuestion() {
 	var repeat = [-1];
 	var index = 0;
 
-	for (var i = 0; i < 15; i++) {
+	for (var i = 0; i < 14; i++) {
 		index = Math.rand(0, data.length-1);
 
 		while(contains(repeat, index)) {
